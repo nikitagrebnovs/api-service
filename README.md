@@ -4,7 +4,9 @@ This is a simple service for register user, login and receive exchange rates (BT
 
 ## Install
 
-    bundle install
+    composer install
+    mv .env.example .env
+    php artisan key:generate
 
 ## Run the app
 
