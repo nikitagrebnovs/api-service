@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Support\Facades\Hash;
 
 class RegisterRequest extends FormRequest
 {
@@ -33,6 +33,7 @@ class RegisterRequest extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
+            'date' => Carbon::now()->format('d.m.y H:i:s'),
             'success'   => false,
             'message'   => 'Validation errors',
             'data'      => $validator->errors()

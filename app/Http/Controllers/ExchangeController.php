@@ -13,10 +13,10 @@ class ExchangeController extends Controller
     public function index()
     {
         return response()->json([
+            'date' => now()->format('d.m.Y H:i:s'),
             'status' => true,
             'message' => 'Cryptocurrency rates',
             'data' => $this->coinGateService->getPrices(),
-            'timestamp' => now()->format('d.m.Y H:i:s'),
         ]);
     }
 }
