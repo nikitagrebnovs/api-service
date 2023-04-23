@@ -57,8 +57,8 @@ class BinanceService
             }
         }
 
-        $price = round($moneySpent / $amount, 4);
-        $cost = round($price * $amount, 4);
+        $price = round($moneySpent / $amount, 8);
+        $cost = round($price * $amount, 8);
 
         return [
             'amount' => $amount,

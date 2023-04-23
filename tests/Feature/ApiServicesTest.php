@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Response;
 use Tests\TestCase;
 
-class UserRegistrationTest extends TestCase
+class ApiServicesTest extends TestCase
 {
     use DatabaseTransactions, WithFaker;
 
