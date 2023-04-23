@@ -106,7 +106,7 @@
                                         id="btn-exchange-rates-submit">{{ __('Send') }}
                                 </button>
                             </div>
-                            <div class="alert alert-danger mt-3 d-none" id="login-request-message">
+                            <div class="alert alert-success mt-3 d-none" id="login-request-message">
                             </div>
                         </form>
                     </div>
