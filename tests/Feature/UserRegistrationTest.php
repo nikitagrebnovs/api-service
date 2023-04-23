@@ -28,7 +28,7 @@ class UserRegistrationTest extends TestCase
 
     public function test_login(): void
     {
-        $password = $this->faker->password;
+        $password = $this->faker->password(10);
         $user = User::factory()->create(['password' => $password]);
 
         $payload = [
@@ -41,8 +41,8 @@ class UserRegistrationTest extends TestCase
 
         $data = (array)json_decode($response->content(), true);
 
-        $this->assertArrayHasKey('token', $data);
         $this->assertTrue($data['status']);
+        $this->assertArrayHasKey('token', $data);
     }
 
     public function test_exchange_rate(): void
