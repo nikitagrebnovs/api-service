@@ -138,7 +138,7 @@
                         },
                         success: function (data) {
                             priceShow.html(data['message']);
-                            priceAlertBar.addClass('d-show alert alert-' + data['css-status']);
+                            priceAlertBar.addClass('d-show mt-3 alert alert-' + data['css-status']);
                         },
                         error: function (data) {
                             $.each(data['responseJSON']['errors'], function (key, message) {
