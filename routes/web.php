@@ -6,7 +6,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Auth::routes();
+Auth::routes();
 
 Route::get('/', '\App\Http\Controllers\HomeController@index')->name('home');
 

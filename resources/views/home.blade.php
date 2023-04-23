@@ -40,8 +40,8 @@
                                         id="btn-submit">{{ __('Calculate')}}</button>
                             </div>
                         </form>
-                        <div class="col-12 mt-4">
-                            <div class="alert alert-success d-none" id="order-book-price-alert">
+                        <div class="col-12">
+                            <div class="alert alert-success d-none mt-4" id="order-book-price-alert">
                                 <span id="order-book-price"></span>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                     <div class="card-header"><h3>{{ __('Crypto rates to EUR') }} </h3></div>
                     <div class="card-body row">
                         <form action="{{ route('exchange.rates') }}" method="get" id="exchange-rates">
-                            <div class="mt-4 text-center" id="crypto-rates"></div>
+                            <div class="mt-4 alert alert-secondary" id="crypto-rates"></div>
                             <div class="mt-4 text-center">
                                 <button class="btn btn-success" type="submit"
                                         id="btn-exchange-rates-submit">{{ __('Refresh') }}
@@ -106,7 +106,7 @@
                                         id="btn-exchange-rates-submit">{{ __('Send') }}
                                 </button>
                             </div>
-                            <div class="alert alert-success mt-3 d-none" id="login-request-message">
+                            <div class="alert alert-danger mt-3 d-none" id="login-request-message">
                             </div>
                         </form>
                     </div>
@@ -241,7 +241,6 @@
                             if (data['success'] === false) {
                                 $.each(data['data'], function (key, message) {
                                     let splitKey = key.split('.');
-
                                     let inputName = key.split('.').length == 1 ? key : (splitKey[0] + '[' + splitKey.splice(1).join('][') + ']');
 
                                     self.find('[name="' + inputName + '"]').addClass('is-invalid');
@@ -253,6 +252,10 @@
                                 message.html(data['message']);
                             }
                         },
+                        error: function (data) {
+                            self.find('[name="email"]').addClass('is-invalid');
+                            $('#error-login-email').html(data['responseJSON']['message']).show();
+                        }
                     });
                 });
             </script>
